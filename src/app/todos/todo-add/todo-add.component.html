@@ -1,0 +1,26 @@
+<ion-content class="ion-padding">
+  <ion-modal
+
+    [isOpen]="isModalOpenAdd"
+    trigger="open-modal-2"
+    [initialBreakpoint]="1"
+    [breakpoints]="[0, 1]"
+  >
+    <ng-template>
+      <div class="p-6">
+        <ion-input
+          name="titulo"
+          label="Título"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Título"
+          [(ngModel)]="name"
+        ></ion-input>
+
+        <ion-button (keydown.enter)="crearTodo()" (click)="crearTodo()"
+          >Guardar</ion-button
+        >
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>

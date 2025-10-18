@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { TodoPagePage } from "./todos/todo-page/todo-page.page";
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  imports: [IonApp, IonRouterOutlet],
+  imports: [TodoPagePage],
 })
 export class AppComponent {
   constructor() {}

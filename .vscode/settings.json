@@ -1,3 +1,15 @@
 {
-  "typescript.preferences.autoImportFileExcludePatterns": ["@ionic/angular/common", "@ionic/angular"]
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "@ionic/angular/common",
+    "@ionic/angular"
+  ],
+  "angular-schematics.schematicsDefaultOptions": {
+    "angular-component": {
+      "skipChangeDetectionOnPush": true
+    },
+    "angular-*": {
+      "skipStyle": true,
+      "externalTemplate": true
+    }
+  }
 }

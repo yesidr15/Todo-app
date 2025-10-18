@@ -1,0 +1,67 @@
+<ion-header
+  ><ion-modal class="pt-6" [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ categoriaSelect }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (keydown.enter)="close()" (click)="close()"
+              >Cerrar</ion-button
+            >
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content  class="ion-padding">
+        <ion-label  class="text-center" *ngIf="todosPorCategoria.length === 0"
+          >No hay tareas</ion-label
+        >
+        <ion-content *ngIf="todosPorCategoria.length > 0">
+          <ion-list class="pt-6" [inset]="true">
+            <ion-item *ngFor="let todo of todosPorCategoria">
+              <ion-checkbox
+                (keydown.enter)="terminar(todo)"
+                (click)="terminar(todo)"
+                [checked]="todo.completado"
+                labelPlacement="end"
+                >{{ todo.texto }}</ion-checkbox
+              >
+              <ion-breadcrumb
+                (keydown.enter)="eliminarTodo(todo.id)"
+                (click)="eliminarTodo(todo.id)"
+                href="#trash"
+              >
+                <ion-icon
+                  color="light"
+                  slot="end"
+                  color="danger"
+                  name="trash"
+                ></ion-icon>
+              </ion-breadcrumb>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+        <ion-fab
+          vertical="top"
+          *ngIf="idCategoriaActual !== 10 && idCategoriaActual !== 20"
+          horizontal="end"
+        >
+          <ion-fab-button
+            (keydown.enter)="setOpenAdd(true)"
+            (click)="setOpenAdd(true)"
+            shape="round"
+            id="open-modal-2"
+            expand="block"
+          >
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+        <!-- Modal para agregar Tareas -->
+         <div class="p-6">
+           <app-todo-add [(isModalOpenAdd)]="isModalOpenAdd" [idCategoriaActual]="idCategoriaActual"></app-todo-add>
+
+         </div>
+        <!--  -->
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-header>
